@@ -97,6 +97,23 @@
         }
     </style>
     <script>
+        // モバイル端末のユーザーエージェント判定
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            // アクセス拒否画面にリダイレクトする
+            // window.location.href = 'reject.html';
+
+            // または、画面にアクセス拒否メッセージを表示して、元の内容を隠す
+            document.addEventListener("DOMContentLoaded", function () {
+                document.body.innerHTML = `
+                    <div style="padding: 40px; text-align: center; font-family: sans-serif;">
+                        <h1>⚠ アクセス制限中</h1>
+                        <p>このコンテンツはPCからのみアクセス可能です。<br>スマートフォンやタブレットからのアクセスは制限されています。</p>
+                    </div>
+                `;
+            });
+        }
         function handleLogin() {
             var userId = document.getElementById('userid').value;
             var password = document.getElementById('password').value;

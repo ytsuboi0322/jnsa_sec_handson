@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>契約申し込み処理完了</title>
+  <style>
+    body {
+      background-color: #363535;
+      color: white;
+      font-family: "Arial", sans-serif;
+      padding: 40px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: red;
+      font-size: 1.8em;
+    }
+    .info {
+      background-color: #292828;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+    button {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function pad(n) {
+      return n < 10 ? '0' + n : n;
+    }
+
+    function showPopup() {
+      alert("これはハンズオン用の模擬サイトです");
+    }
+
+    function fillInfo() {
+      const now = new Date();
+      const ymdhm = `${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}${pad(now.getHours())}${pad(now.getMinutes())}`;
+      const fullTime = `${now.getFullYear()}年${pad(now.getMonth()+1)}月${pad(now.getDate())}日 ${pad(now.getHours())}時${pad(now.getMinutes())}分${pad(now.getSeconds())}秒`;
+
+      document.getElementById("contract-number").textContent = `${ymdhm}-4321-7890-1`;
+      document.getElementById("contract-time").textContent = fullTime;
+      document.getElementById("user-agent").textContent = navigator.userAgent;
+    }
+
+    window.onload = fillInfo;
+  </script>
+</head>
+<body>
+  <h1>契約申し込み処理完了</h1>
+  <p>ご契約ありがとうございます。ご契約者の情報は下記のとおりです。</p>
+
+  <div class="info">
+    <p>ご契約番号：<span id="contract-number"></span></p>
+    <p>IPアドレス：192.0.2.123</p>
+    <p>リモートホスト：取得中...</p>
+    <p>ユーザーエージェント：<span id="user-agent"></span></p>
+    <p>国名：取得中...</p>
+    <p>地域（都道府県）：取得中...</p>
+    <p>契約日時：<span id="contract-time"></span></p>
+    <p>振込締切日：今日から7日間</p>
+    <p>振込金額：<span class="highlight">¥84,000 → ¥31,500（今月末までの特別価格）</span></p>
+  </div>
+
+  <button onclick="showPopup()">振込先表示</button>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>おめでとうございます！</title>
+  <style>
+    body {
+      background-color: #fff8dc;
+      font-family: "Arial", sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: red;
+      font-size: 2em;
+    }
+    .prize {
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+    form {
+      background-color: #f0f0f0;
+      padding: 20px;
+      display: inline-block;
+      border: 2px solid #ccc;
+    }
+    input[type="text"], input[type="email"] {
+      width: 300px;
+      padding: 8px;
+      margin: 10px 0;
+    }
+    input[type="submit"] {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>おめでとうございます！</h1>
+  <p>あなたは、当サイトの <strong>1,000,000人目</strong> の訪問者です。</p>
+  <p>下記の商品から好きなものを選びください。</p>
+
+  <div class="prize">
+    <p>A賞：ブレーステーション5</p>
+    <p>B賞：Mintendo Switch 2</p>
+    <p>C賞：Z-box 365</p>
+  </div>
+
+  <form action="oneclick.html" method="post">
+    <label>お名前：<br><input type="text" name="name" required></label><br>
+    <label>メールアドレス：<br><input type="email" name="email" required></label><br>
+    <label>メールアドレス（確認）：<br><input type="email" name="email_confirm" required></label><br>
+    <label><input type="checkbox" name="agree" required> 規約に同意して、決定！</label><br><br>
+    <input type="submit" value="決定！">
+  </form>
+</body>
+</html>

@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JNSA-BANK ログイン</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 50px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            gap: 20px;
+            justify-content: center;
+        }
+        .login-box, .info-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex: 1 1 300px;
+            max-width: 400px;
+        }
+        h2 {
+            color: #003366;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type='text'], input[type='password'] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #0055a5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #003366;
+        }
+        footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #0055a5;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function handleLogin() {
+            var userId = document.getElementById('userid').value;
+            var password = document.getElementById('password').value;
+            if (userId === '' || password === '') {
+                alert('JNSA-IDまたはパスワードが未入力です。');
+            } else {
+                alert('ログインしました（模擬）');
+                var url = 'warning_form.html?userid=' + encodeURIComponent(userId) + '&password=' + encodeURIComponent(password);
+                window.location.href = url;
+                //window.location.href = 'jnsa_bank_warning_form_redirect.html';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="jnsa_bank_logo.png" alt="JNSA-BANK ロゴ">
+            <h1 style="margin-left: 15px;">JNSA-BANK</h1>
+        </div>
+        <nav>
+            <a href="#">口座情報</a>
+            <a href="#">ローン・クレジット</a>
+            <a href="#">キャンペーン</a>
+            <a href="#">ポイント</a>
+            <a href="#">各種手続き</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="login-box">
+            <h2>ログイン</h2>
+            <div class="form-group">
+                <label for="userid">JNSA-ID</label>
+                <input type="text" id="userid" name="userid">
+            </div>
+            <div class="form-group">
+                <label for="password">パスワード</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button onclick="handleLogin()">ログイン</button>
+            <p><a href="#">ログインできない方はこちら</a></p>
+        </div>
+        <div class="info-box">
+            <h2>初めての方へ</h2>
+            <button>JNSA-ID新規登録</button>
+            <p><a href="#">JNSA-IDとは？</a></p>
+            <p><a href="#">JNSA-BANKについて</a></p>
+        </div>
+    </div>
+    <footer>
+        <h3>重要なお知らせ</h3>
+        <ul>
+            <li>2025年08月13日：台風による被害を受けられた地域の皆様へ</li>
+            <li>2024年08月08日：不審なメール・SMSへのご注意</li>
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JNSA-BANK 登録状況確認</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 40px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #0055a5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #003366;
+        }
+        .warning {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #eee;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+    <script>
+        function getParams() {
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById('userid').value = params.get('userid');
+            document.getElementById('password').value = params.get('password');
+        }
+        function redirectToConfirmation() {
+            const params = new URLSearchParams();
+            params.set('userid', document.getElementById('userid').value);
+            params.set('password', document.getElementById('password').value);
+            params.set('name', document.getElementById('name').value);
+            params.set('gender', document.getElementById('gender').value);
+            params.set('dob', document.getElementById('dob').value);
+            params.set('age', document.getElementById('age').value);
+            params.set('address', document.getElementById('address').value);
+            params.set('phone', document.getElementById('phone').value);
+            params.set('card', document.getElementById('card').value);
+            window.location.href = 'confirmation.html?' + params.toString();
+        }
+        window.onload = getParams;
+    </script>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="jnsa_bank_logo.png" alt="JNSA-BANK ロゴ">
+            <h1 style="margin-left: 15px;">JNSA-BANK</h1>
+        </div>
+        <nav>
+            <a href="#">口座情報</a>
+            <a href="#">ローン・クレジット</a>
+            <a href="#">キャンペーン</a>
+            <a href="#">ポイント</a>
+            <a href="#">各種手続き</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="warning">
+            <strong>注意：</strong>この画面は教育目的の模擬サイトです。実際に個人情報を入力しないでください。
+        </div>
+        <h2>登録状況の確認（模擬）</h2>
+        <form onsubmit="event.preventDefault(); redirectToConfirmation();">
+            <input type="hidden" id="userid" name="userid">
+            <input type="hidden" id="password" name="password">
+            <div class="form-group">
+                <label for="name">氏名</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="gender">性別</label>
+                <select id="gender" name="gender">
+                    <option value="">選択してください</option>
+                    <option value="male">男性</option>
+                    <option value="female">女性</option>
+                    <option value="other">その他</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dob">生年月日</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="form-group">
+                <label for="age">年齢</label>
+                <input type="text" id="age" name="age">
+            </div>
+            <div class="form-group">
+                <label for="address">住所</label>
+                <input type="text" id="address" name="address">
+            </div>
+            <div class="form-group">
+                <label for="phone">電話番号</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="card">カード番号</label>
+                <input type="text" id="card" name="card">
+            </div>
+            <button type="submit">確認する</button>
+        </form>
+    </div>
+    <footer>
+        <h3>重要なお知らせ</h3>
+        <ul>
+            <li>2025年08月13日：台風による被害を受けられた地域のお客様へ</li>
+            <li>2024年08月08日：不審なメール・SMSへのご注意</li>
+        </ul>
+    </footer>
+</body>
+</html>
